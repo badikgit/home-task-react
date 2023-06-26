@@ -1,0 +1,10 @@
+@import '../../styles';
+
+.main {
+  background-color: $backgroundRoot;
+  background-image: url('./../../assets/ticket.svg');
+  background-repeat: no-repeat;
+  background-position: 110% 110%;
+  background-blend-mode: soft-light;
+  background-size: 35%;
+}

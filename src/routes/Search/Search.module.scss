@@ -1,0 +1,13 @@
+@import '../../styles';
+
+.container {
+  @include block;
+}
+
+.heading {
+  @include heading;
+}
+
+.textContent {
+  @include textContent;
+}
