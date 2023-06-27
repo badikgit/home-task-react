@@ -11,4 +11,9 @@
     font-weight: 600;
     line-height: 20px;
   }
+  & .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 }

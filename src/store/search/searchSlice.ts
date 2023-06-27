@@ -1,13 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GenreType } from '../types';
+
+export interface Option {
+  label: string;
+  value: string;
+}
 
 export interface SearchState {
-  genre: GenreType | null;
+  cinema: Option;
+  genre: Option;
   title: string;
 }
 
 const initialState: SearchState = {
-  genre: null,
+  cinema: { value: 'null', label: 'Не выбран' },
+  genre: { value: 'null', label: 'Не выбран' },
   title: '',
 };
 
@@ -15,7 +21,13 @@ export const searchSlice = createSlice({
   name: 'search',
   initialState,
   reducers: {
-    setGenre(state, { payload: newGenre }: PayloadAction<GenreType>): SearchState {
+    setCinema(state, { payload: newCinema }: PayloadAction<Option>): SearchState {
+      return {
+        ...state,
+        cinema: newCinema,
+      };
+    },
+    setGenre(state, { payload: newGenre }: PayloadAction<Option>): SearchState {
       return {
         ...state,
         genre: newGenre,
@@ -30,4 +42,4 @@ export const searchSlice = createSlice({
   },
 });
 
-export const { setGenre, setTitle } = searchSlice.actions;
+export const { setCinema, setGenre, setTitle } = searchSlice.actions;

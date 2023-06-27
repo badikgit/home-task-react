@@ -1,0 +1,100 @@
+@import '../../styles';
+
+.container {
+  @include control;
+  & .select {
+    font-size: 14px;
+    position: relative;
+    &__arrow {
+      border: none;
+      padding: 0;
+      margin: 0;
+      background: none;
+      cursor: pointer;
+    }
+    &__svg {
+      width: 20px;
+      height: 20px;
+      color: $iconsTertiary;
+    }
+    &.open {
+      .select__input {
+        border-color: $orange;
+      }
+      .select__dropdown {
+        display: block;
+      }
+      .select__svg {
+        transform: scale(-1);
+      }
+    }
+    &__input {
+      line-height: 1;
+      border: 1px $borderDefault solid;
+      border-radius: $borderRadius;
+      padding: 10px 16px;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    &__content {
+      color: $textPrimary;
+    }
+    &__placeholder {
+      color: $textTertiary;
+    }
+    &__dropdown {
+      display: none;
+      width: 100%;
+      top: calc(100% + 4px);
+      max-height: calc(100% * 6);
+      position: absolute;
+      border-radius: 8px;
+      border: 1px solid $white;
+      background: $white;
+      overflow-y: auto;
+      box-shadow: 0px 10px 22px -4px rgba(27, 31, 35, 0.12);
+      z-index: 1;
+    }
+    &__list {
+      margin: 0;
+      list-style: none;
+      display: flex;
+      padding: 8px;
+      flex-direction: column;
+      align-items: flex-start;
+      align-self: stretch;
+    }
+    &__item {
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      background: unset;
+      text-align: left;
+      font-size: 14px;
+      line-height: 18px;
+      align-self: stretch;
+      font-family: 'SF Pro Display', sans-serif;
+      transition: 0.2s background-color;
+      &:hover {
+        color: $white;
+        background-color: $orange;
+      }
+      &:disabled {
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+    &__backdrop {
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0;
+      border: none;
+      position: fixed;
+    }
+  }
+}
+

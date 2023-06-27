@@ -33,3 +33,33 @@
       opacity: 0.9;
   }
 }
+
+@mixin control {
+  display: grid;
+  row-gap: 4px;
+  font-family: 'SF Pro Display', sans-serif;
+  & label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  & input {
+    font-size: 14px;
+    color: $textPrimary;
+    line-height: 20px;
+    border-radius: $borderRadius;
+    padding: 10px 16px;
+    height: 40px;
+    outline: none;
+    width: 360px;
+    border: 1px $borderDefault solid;
+    &::placeholder {
+      color: $textTertiary;
+      font-family: 'SF Pro Display', sans-serif;
+      font-size: 14px;
+    }
+    &:not(:placeholder-shown),
+    &:focus {
+      border-color: $orange;
+    }
+  }
+}
