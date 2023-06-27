@@ -3,24 +3,24 @@ import { MovieDto, SearchMovieByMovieIdParams, SearchMoviesByCinemaIdParams } fr
 
 export const moviesApi = createApi({
   reducerPath: 'moviesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_API}/api/movies` }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_API}/api` }),
   endpoints: (build) => ({
     getMovies: build.query<MovieDto[], null>({
       query: () => ({
-        url: ``,
+        url: `/movies`,
         method: 'GET',
       }),
     }),
     getMoviesByCinemaId: build.query<MovieDto[], Partial<SearchMoviesByCinemaIdParams>>({
       query: ({ ...params }) => ({
-        url: ``,
+        url: `/movies`,
         method: 'GET',
         params,
       }),
     }),
     getMovieById: build.query<MovieDto, SearchMovieByMovieIdParams>({
       query: ({ ...params }) => ({
-        url: ``,
+        url: `/movie`,
         method: 'GET',
         params,
       }),

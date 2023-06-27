@@ -5,6 +5,11 @@
   flex-direction: row;
   column-gap: $gapX;
   max-height: fit-content;
+  border: none;
+  cursor: pointer;
+  & > * {
+    pointer-events: none;
+  }
   & .poster {
     height: 120px;
     width: 100px;
@@ -22,5 +27,6 @@
   }
   & .controls {
     margin-left: auto;
+    pointer-events: all;
   }
 }

@@ -4,6 +4,7 @@ export * from './Footer';
 export * from './Header';
 export * from './Input';
 export * from './Main';
+export * from './MovieCard';
 export * from './Select';
 export * from './TicketCard';
 export * from './Tickets';
