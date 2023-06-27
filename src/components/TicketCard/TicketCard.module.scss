@@ -6,6 +6,7 @@
   column-gap: $gapX;
   max-height: fit-content;
   border: none;
+  text-align: left;
   cursor: pointer;
   & > * {
     pointer-events: none;
