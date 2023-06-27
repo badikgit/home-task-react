@@ -1,7 +1,10 @@
 @import '../../styles';
 
 .container {
-  @include block;
+  flex: 1;
+  display: grid;
+  column-gap: $gapX;
+  grid-template-columns: 408px 1fr;
 }
 
 .heading {

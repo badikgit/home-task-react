@@ -2,9 +2,24 @@
 
 .main {
   background-color: $backgroundRoot;
-  background-image: url('./../../assets/ticket.svg');
-  background-repeat: no-repeat;
-  background-position: 110% 110%;
-  background-blend-mode: soft-light;
-  background-size: 35%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    right: -9.5%;
+    bottom: -3%;
+    z-index: -1;
+    background-image: url('./../../assets/ticket.svg');
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-position: 10%;
+    transform: rotate(180deg);
+    opacity: 0.50;
+  }
 }

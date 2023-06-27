@@ -11,7 +11,7 @@ export const moviesApi = createApi({
         method: 'GET',
       }),
     }),
-    getMoviesByCinemaId: build.query<MovieDto[], SearchMoviesByCinemaIdParams>({
+    getMoviesByCinemaId: build.query<MovieDto[], Partial<SearchMoviesByCinemaIdParams>>({
       query: ({ ...params }) => ({
         url: ``,
         method: 'GET',

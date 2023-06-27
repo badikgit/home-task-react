@@ -3,7 +3,7 @@ export interface MovieDto {
   posterUrl: string;
   releaseYear: number;
   description: string;
-  genre: string;
+  genre: GenreType;
   id: string;
   rating: number;
   director: string;
@@ -17,3 +17,13 @@ export interface SearchMoviesByCinemaIdParams {
 export interface SearchMovieByMovieIdParams {
   movieId: string;
 }
+
+export const Genre: Record<GenreType, string | undefined> = {
+  action: 'Боевик',
+  comedy: 'Комедия',
+  horror: 'Ужасы',
+  fantasy: 'Фэнтези',
+  null: undefined,
+};
+
+export type GenreType = 'action' | 'comedy' | 'horror' | 'fantasy' | 'null';
