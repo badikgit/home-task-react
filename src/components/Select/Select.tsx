@@ -33,18 +33,18 @@ export const Select: FC<SelectProps> = ({ label = 'LabeL', placeholder = 'Placeh
     <div className={styles.container}>
       <label>{label}</label>
       <div className={[styles.select, isOpen ? styles.open : ''].join(' ')}>
-        <div className={styles.select__input}>
+        <button type="button" className={styles.select__input} onClick={toogleSelect}>
           {selectedValue.value !== 'null' ? (
             <span className={styles.select__content}>{selectedValue.label}</span>
           ) : (
             <span className={styles.select__placeholder}>{placeholder}</span>
           )}
-          <button type="button" className={styles.select__arrow} onClick={toogleSelect}>
-            <svg className={styles.select__svg}>
-              <use href={`${arrowIcon}#arrow`} />
-            </svg>
-          </button>
-        </div>
+          {/* <button type="button" className={styles.select__arrow} onClick={toogleSelect}> */}
+          <svg className={styles.select__svg}>
+            <use href={`${arrowIcon}#arrow`} />
+          </svg>
+          {/* </button> */}
+        </button>
         {isOpen && (
           <>
             <button type="button" onClick={toogleSelect} className={styles.select__backdrop}>
