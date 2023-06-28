@@ -1,5 +1,6 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useDebounce } from '../../common/hooks';
 import { AppState, SearchState, searchSlice, store } from '../../store';
 import styles from './Input.module.scss';
 
@@ -10,16 +11,25 @@ interface InputProps {
 
 export const Input: FC<InputProps> = ({ label = 'LabeL', placeholder = 'Placeholder' }) => {
   const { title: value } = useSelector(({ search }: AppState): SearchState => search);
+  const [query, setQuery] = useState(value);
 
-  const onInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    store.dispatch(searchSlice.actions.setTitle(newValue));
+  const debounced = useDebounce(query);
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newQuery = e.target.value;
+    setQuery(newQuery);
   };
+
+  useEffect(() => {
+    if (typeof debounced === 'string') {
+      store.dispatch(searchSlice.actions.setTitle(debounced));
+    }
+  }, [debounced]);
 
   return (
     <div className={styles.container}>
       <label>{label}</label>
-      <input type="text" placeholder={placeholder} value={value} onChange={onInput} />
+      <input type="text" placeholder={placeholder} value={query} onChange={onChangeHandler} />
     </div>
   );
 };
