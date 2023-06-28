@@ -2,12 +2,18 @@
 
 .container {
   @include block;
+  padding: 0;
+  background: none;
+  row-gap: $gapX;
+}
+
+.questions {
+  display: flex;
+  flex-direction: column;
+  row-gap: $gapY;
 }
 
 .heading {
+  @include block;
   @include heading;
-}
-
-.textContent {
-  @include textContent;
 }

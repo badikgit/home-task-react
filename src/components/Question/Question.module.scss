@@ -1,0 +1,38 @@
+@import '../../styles';
+
+.question {
+  @include block;
+  cursor: pointer;
+  border: 0;
+  &.open {
+    & .arrow {
+      transform: scale(-1) translateY(3px);
+    }
+  }
+}
+
+.heading {
+  @include block;
+  @include heading;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.arrow {
+  & svg {
+    width: 32px;
+    height: 32px;
+    color: $gray1;
+  }
+  transform: scale(1) translateY(5px);
+}
+
+.textContent {
+  @include textContent;
+  text-align: left;
+}

@@ -10,3 +10,4 @@ export * from './Reviews';
 export * from './Select';
 export * from './TicketCard';
 export * from './Tickets';
+export * from './Question';
