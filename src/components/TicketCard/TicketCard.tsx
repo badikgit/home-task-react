@@ -15,7 +15,7 @@ export const TicketCard: FC<MovieDto> = ({ posterUrl, title, genre, id }) => {
 
   return (
     <button type="button" className={styles.ticket} value={id} onClick={onClickHandler}>
-      <img className={styles.poster} src={posterUrl} alt={title} />
+      <img className={styles.poster} src={posterUrl} alt={title} loading="lazy" />
       <div>
         <h4>{title}</h4>
         <i>{Genre[genre]}</i>

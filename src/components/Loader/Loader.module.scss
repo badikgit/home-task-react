@@ -1,0 +1,35 @@
+@import '../../styles';
+
+.wrapper {
+  @include block;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: calc($gapX / 2);
+  max-height: 75px;
+  flex: 0;
+  & .dot {
+    height: 14px;
+    width: 14px;
+    border-radius: 100%;
+    background-color: $borderDefault;
+    animation: loading 0.6s infinite ease-in-out;
+    &:nth-child(1) {
+      animation-delay: 0.07s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.07s;
+    }
+  }
+}
+
+@keyframes loading {
+  33% {
+    transform: translateY(10px)
+  }
+  66% {
+    transform: translateY(-10px)
+  }
+  100% {
+    transform: translateY(0)
+  }
+}

@@ -1,5 +1,9 @@
 @import '../../styles';
 
+.wrapper {
+  @include wrapper;
+}
+
 .tickets {
   @include block;
   row-gap: 20px;

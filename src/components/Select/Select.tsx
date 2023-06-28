@@ -39,11 +39,9 @@ export const Select: FC<SelectProps> = ({ label = 'LabeL', placeholder = 'Placeh
           ) : (
             <span className={styles.select__placeholder}>{placeholder}</span>
           )}
-          {/* <button type="button" className={styles.select__arrow} onClick={toogleSelect}> */}
           <svg className={styles.select__svg}>
             <use href={`${arrowIcon}#arrow`} />
           </svg>
-          {/* </button> */}
         </button>
         {isOpen && (
           <>

@@ -1,5 +1,9 @@
 @import '../../styles';
 
+.wrapper {
+  @include wrapper;
+}
+
 .movie {
   @include block;
   flex-direction: row;
