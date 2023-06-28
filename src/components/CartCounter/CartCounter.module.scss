@@ -1,0 +1,15 @@
+@import '../../styles';
+
+.counter {
+  text-align: center;
+  color: $white;
+  height: 28px;
+  padding: 4px;
+  min-width: 28px;
+  border-radius: $borderRadius;
+  background-color: $orange;
+  font-family: 'Roboto';
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}

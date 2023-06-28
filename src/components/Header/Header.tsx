@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import ticketIcon from '../../assets/ticket.svg';
 import cartIcon from '../../assets/basket.svg';
 import styles from './Header.module.scss';
+import { CartCounter } from '..';
 
 export function Header() {
   return (
@@ -13,6 +14,7 @@ export function Header() {
         </h1>
       </Link>
       <Link className={[styles.cart, styles.link].join(' ')} to="/cart">
+        <CartCounter />
         <img src={cartIcon} alt="cart" />
       </Link>
     </header>
