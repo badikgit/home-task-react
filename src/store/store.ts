@@ -1,8 +1,9 @@
 import { configureStore, combineReducers, PreloadedState } from '@reduxjs/toolkit';
 import { cinemasApi, moviesApi, reviewsApi } from './api';
-import { searchSlice } from '.';
+import { searchSlice, cartSlice } from '.';
 
 const appReducer = combineReducers({
+  [cartSlice.name]: cartSlice.reducer,
   [searchSlice.name]: searchSlice.reducer,
   [cinemasApi.reducerPath]: cinemasApi.reducer,
   [moviesApi.reducerPath]: moviesApi.reducer,
