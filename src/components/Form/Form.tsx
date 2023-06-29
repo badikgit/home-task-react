@@ -11,11 +11,13 @@ export const Form = () => {
 
   return (
     <form className={styles.form}>
-      <h3>Фильтер поиска</h3>
-      <div className={styles.controls}>
-        <Input placeholder="Введите название" label="Название" />
-        <Select placeholder="Выберите жанр" label="Жанр" items={genresItems} name="genre" />
-        <Select placeholder="Выберите кинотеатр" label="Кинотеатр" items={cinemasItems} name="cinema" />
+      <div className={styles.wrapper}>
+        <h3>Фильтер поиска</h3>
+        <div className={styles.controls}>
+          <Input placeholder="Введите название" label="Название" />
+          <Select placeholder="Выберите жанр" label="Жанр" items={genresItems} name="genre" />
+          <Select placeholder="Выберите кинотеатр" label="Кинотеатр" items={cinemasItems} name="cinema" />
+        </div>
       </div>
     </form>
   );

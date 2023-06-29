@@ -2,7 +2,8 @@
 
 .container {
   @include control;
-  & .select {
+}
+.select {
     font-size: 14px;
     position: relative;
     &__arrow {
@@ -100,7 +101,23 @@
       opacity: 0;
       border: none;
       position: fixed;
+      z-index: 2;
     }
-  }
 }
 
+.cinema,
+.genre {
+  position: fixed;
+  left: 56px;
+  top: 0;
+  z-index: 3;
+  width: 360px;
+}
+
+.genre {
+  top: 320px;
+}
+
+.cinema {
+  top: 400px;
+}

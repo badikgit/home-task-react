@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 import { useDebounce } from '../../common/hooks';
 import arrowIcon from '../../assets/arrow.svg';
@@ -16,7 +17,11 @@ export const Select: FC<SelectProps> = ({ label = 'LabeL', placeholder = 'Placeh
   const searchState = useSelector(({ search }: AppState): SearchState => search);
 
   const defaultOption: Option = { label: 'Не выбран', value: 'null' };
-  const selectedValue = name === 'genre' ? searchState.genre : name === 'cinema' ? searchState.cinema : defaultOption;
+
+  const isGenre = name === 'genre';
+  const isCinema = name === 'cinema';
+
+  const selectedValue = isGenre ? searchState.genre : isCinema ? searchState.cinema : defaultOption;
 
   const [query, setQuery] = useState(selectedValue);
   const debounced = useDebounce(query);
@@ -33,10 +38,10 @@ export const Select: FC<SelectProps> = ({ label = 'LabeL', placeholder = 'Placeh
 
   useEffect(() => {
     if (typeof debounced !== 'string') {
-      if (name === 'genre') store.dispatch(searchSlice.actions.setGenre(debounced));
-      else if (name === 'cinema') store.dispatch(searchSlice.actions.setCinema(debounced));
+      if (isGenre) store.dispatch(searchSlice.actions.setGenre(debounced));
+      else if (isCinema) store.dispatch(searchSlice.actions.setCinema(debounced));
     }
-  }, [debounced, name]);
+  }, [debounced, isCinema, isGenre]);
 
   return (
     <div className={styles.container}>
@@ -52,22 +57,24 @@ export const Select: FC<SelectProps> = ({ label = 'LabeL', placeholder = 'Placeh
             <use href={`${arrowIcon}#arrow`} />
           </svg>
         </button>
-        {isOpen && (
-          <>
-            <button type="button" onClick={toogleSelect} className={styles.select__backdrop}>
-              close
-            </button>
-            <div className={styles.select__dropdown}>
-              <div className={styles.select__list}>
-                {[defaultOption, ...items].map((item) => (
-                  <button key={item.value} type="button" className={styles.select__item} onClick={() => setValue(item)} disabled={query.value === item.value}>
-                    {item.label}
-                  </button>
-                ))}
+        {isOpen &&
+          createPortal(
+            <div className={[styles.select, isOpen ? styles.open : ''].join(' ')}>
+              <button type="button" className={styles.select__backdrop} onClick={toogleSelect}>
+                close
+              </button>
+              <div className={[styles.select__dropdown, isCinema ? styles.cinema : isGenre ? styles.genre : ''].join(' ')}>
+                <div className={styles.select__list}>
+                  {[defaultOption, ...items].map((item) => (
+                    <button key={item.value} type="button" className={styles.select__item} onClick={() => setValue(item)} disabled={query.value === item.value}>
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
-          </>
-        )}
+            </div>,
+            document.body
+          )}
       </div>
     </div>
   );

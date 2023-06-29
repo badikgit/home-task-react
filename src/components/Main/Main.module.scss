@@ -6,7 +6,7 @@
   flex-direction: column;
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  overflow: clip;
   &:before {
     content: "";
     position: absolute;
