@@ -17,6 +17,7 @@
     width: 100px;
     border-radius: $borderRadius;
     object-fit: cover;
+    flex-shrink: 0;
   }
   & h4 {
     margin-block-start: 0;

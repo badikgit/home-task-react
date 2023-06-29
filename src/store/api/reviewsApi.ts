@@ -4,6 +4,7 @@ import { ReviewDto, SearchReviewsByMovieIdParams } from '../types';
 export const reviewsApi = createApi({
   reducerPath: 'reviewsApi',
   baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_API}/api/reviews` }),
+  tagTypes: ['Review'],
   endpoints: (build) => ({
     getReviews: build.query<ReviewDto[], null>({
       query: () => ({
@@ -17,6 +18,8 @@ export const reviewsApi = createApi({
         method: 'GET',
         params,
       }),
+      providesTags: (result) =>
+        result ? [...result.map(({ id }) => ({ type: 'Review' as const, id })), { type: 'Review', id: 'LIST' }] : [{ type: 'Review', id: 'LIST' }],
     }),
   }),
 });

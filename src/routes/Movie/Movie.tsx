@@ -6,11 +6,11 @@ import styles from './Movie.module.scss';
 export const Movie = () => {
   const location = useLocation();
   const movieId = location.pathname.split('/').reverse()[0];
-  const { data, isLoading, isFetching, isSuccess } = useGetMovieByIdQuery({ movieId }, { refetchOnMountOrArgChange: true });
+  const { data, isLoading, isSuccess } = useGetMovieByIdQuery({ movieId }, { refetchOnMountOrArgChange: true });
 
   return (
     <div className={styles.wrapper}>
-      {(isLoading || isFetching) && <Loader />}
+      {isLoading && <Loader />}
       {isSuccess && <MovieCard {...data} />}
     </div>
   );

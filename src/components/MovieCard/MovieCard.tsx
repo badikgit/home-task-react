@@ -6,7 +6,7 @@ import styles from './MovieCard.module.scss';
 
 export const MovieCard: FC<MovieDto> = (props) => {
   const { posterUrl, title, genre, id: movieId, description, director, rating, releaseYear } = props;
-  const { data, isLoading, isFetching, isSuccess } = useGetReviewsByMovieIdQuery({ movieId });
+  const { data, isLoading, isSuccess } = useGetReviewsByMovieIdQuery({ movieId });
 
   return (
     <div className={styles.wrapper}>
@@ -41,7 +41,7 @@ export const MovieCard: FC<MovieDto> = (props) => {
           </div>
         </div>
       </div>
-      {(isLoading || isFetching) && <Loader />}
+      {isLoading && <Loader />}
       {isSuccess && <Reviews data={data} />}
     </div>
   );
