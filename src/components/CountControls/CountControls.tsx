@@ -1,8 +1,9 @@
-import { FC } from 'react';
+import { FC, useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { MovieDto } from '../../store/types';
 import { useCartCount } from '../../common/hooks';
+import { MovieDto } from '../../store/types';
 import { store, cartSlice } from '../../store';
+import { Modal } from '..';
 import plusIcon from '../../assets/plus.svg';
 import minusIcon from '../../assets/minus.svg';
 import closeIcon from '../../assets/close.svg';
@@ -13,6 +14,8 @@ interface CountControlsProps {
 }
 
 export const CountControls: FC<CountControlsProps> = ({ data }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const isDeletable = useLocation().pathname === '/cart';
   const count = useCartCount(data.id);
 
@@ -23,13 +26,18 @@ export const CountControls: FC<CountControlsProps> = ({ data }) => {
 
   const reduceTicket: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
+    if (count === 1) {
+      setIsModalOpen(true);
+      return;
+    }
     store.dispatch(cartSlice.actions.setTicketInfo({ ...data, tickets: count - 1 }));
   };
 
-  const removeTickets: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    e.stopPropagation();
-    store.dispatch(cartSlice.actions.removeTicketsbyId(data.id));
+  const removeTickets = () => {
+    setIsModalOpen(true);
   };
+
+  const closeModal = useCallback(() => setIsModalOpen(false), [setIsModalOpen]);
 
   return (
     <div className={styles.controls}>
@@ -57,6 +65,7 @@ export const CountControls: FC<CountControlsProps> = ({ data }) => {
           </picture>
         </button>
       )}
+      {isModalOpen && <Modal id={data.id} closeModal={closeModal} />}
     </div>
   );
 };

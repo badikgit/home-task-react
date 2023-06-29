@@ -7,6 +7,7 @@ export * from './Header';
 export * from './Input';
 export * from './Loader';
 export * from './Main';
+export * from './Modal';
 export * from './MovieCard';
 export * from './Reviews';
 export * from './Select';
