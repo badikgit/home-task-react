@@ -1,0 +1,31 @@
+@import '../../styles';
+
+.wrapper {
+  position: sticky;
+  top: 108px;
+  @include block;
+  row-gap: 20px;
+  height: calc(100vh - 84px - 72px - (2 * 24px));
+}
+
+.form {
+  @include block;
+  background: none;
+  padding: 0;
+  flex: 1;
+  max-width: 408px;
+  position: relative;
+  & h3 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+  }
+  & .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

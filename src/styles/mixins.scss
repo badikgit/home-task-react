@@ -1,0 +1,73 @@
+@import './colors.scss', './sizes.scss';
+
+@mixin heading {
+  color: $textPrimary;
+  font-size: 32px;
+  font-family: 'Roboto';
+  font-weight: 600;
+  line-height: 1;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+@mixin textContent {
+  color: $textPrimary;
+  font-size: 16px;
+  font-family: 'Roboto';
+  line-height: 24px;
+}
+
+@mixin block {
+  display: flex;
+  flex-direction: column;
+  column-gap: $gapX;
+  row-gap: $gapY;
+  padding: $paddingBlock;
+  background-color: $backgroundPrimary;
+  border-radius: $borderRadius;
+}
+
+@mixin link {
+  flex-direction: row;
+  transition: 0.4s;
+  text-decoration: none;
+  &:hover {
+      opacity: 0.9;
+  }
+}
+
+@mixin control {
+  display: grid;
+  row-gap: 4px;
+  font-family: 'SF Pro Display', sans-serif;
+  & label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  & input {
+    font-size: 14px;
+    color: $textPrimary;
+    line-height: 20px;
+    border-radius: $borderRadius;
+    padding: 10px 16px;
+    height: 40px;
+    outline: none;
+    width: 360px;
+    border: 1px $borderDefault solid;
+    &::placeholder {
+      color: $textTertiary;
+      font-family: 'SF Pro Display', sans-serif;
+      font-size: 14px;
+    }
+    &:not(:placeholder-shown),
+    &:focus {
+      border-color: $orange;
+    }
+  }
+}
+
+
+@mixin wrapper {
+  display: grid;
+  gap: 20px;
+}

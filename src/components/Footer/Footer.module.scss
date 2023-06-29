@@ -1,0 +1,13 @@
+@import '../../styles';
+
+.footer {
+  background-color: $gray1;
+  color: $white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.link {
+  @include link;
+  color: $white;
+}

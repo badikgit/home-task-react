@@ -1,0 +1,47 @@
+@import '../../styles';
+
+.review {
+  @include block;
+  flex-direction: row;
+}
+
+.photo {
+  height: 100px;
+  width: 100px;
+  background-color: $gray5;
+  border-radius: 8px;
+  color: $gray3;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  & svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: $gapY;
+  color: $textPrimary;
+  font-family: 'Roboto';
+  line-height: 32px;
+  & p {
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  & h4 {
+    font-weight: 600;
+    font-size: 20px;
+  }
+  & span {
+    font-size: 20px;
+  }
+}

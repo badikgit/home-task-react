@@ -1,0 +1,59 @@
+@import '../../styles';
+
+.controls {
+  height: 20px;
+  display: flex;
+  column-gap: 8px;
+  flex-shrink: 0;
+  margin-left: auto;
+  padding-left: 16px;
+  background: $white;
+  & button {
+    background-color: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  & b {
+    font-family: 'Roboto';
+    font-size: 20px;
+    line-height: 1;
+  }
+  .remove {
+    margin-left: 16px;
+    background: none;
+    color: $gray1;
+    padding: 0;
+    & svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.control,
+.remove {
+  pointer-events: all;
+  background-color: $orange;
+  height: 20px;
+  width: 20px;
+  border-radius: 4px;
+  padding: 4px;
+  color: $white;
+  cursor: pointer;
+  & picture {
+    display: grid;
+    place-items: center;
+  }
+  & svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.control:hover {
+  background-color: $orangeHover;
+}
+.control:disabled {
+  background-color: $orangeDisabled;
+}

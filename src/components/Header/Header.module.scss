@@ -1,0 +1,41 @@
+@import '../../styles';
+
+.header {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: $gray1;
+  color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.125;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  display: flex;
+  align-items: center;
+  column-gap: $gapY;
+  & img {
+    height: 36px;
+    filter: brightness(0%) saturate(100%) invert(54%) sepia(64%) saturate(7370%) hue-rotate(6deg) brightness(150%) contrast(103%);
+  }
+}
+
+.link {
+  @include link;
+  color: $white;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}

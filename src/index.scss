@@ -1,0 +1,45 @@
+@import './styles';
+
+:root {
+  font-family: Roboto, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: $textPrimary;
+  background-color: $backgroundRoot;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+main {
+  flex: 1;
+}
+
+header, main, footer {
+  padding: $paddingGlobal;
+}

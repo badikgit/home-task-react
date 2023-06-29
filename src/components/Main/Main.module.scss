@@ -1,0 +1,25 @@
+@import '../../styles';
+
+.main {
+  background-color: $backgroundRoot;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  overflow: clip;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 65%;
+    height: 65%;
+    right: -9.5%;
+    bottom: -3%;
+    z-index: -1;
+    background-image: url('./../../assets/ticket.svg');
+    background-blend-mode: soft-light;
+    background-repeat: no-repeat;
+    background-position: 10%;
+    transform: rotate(180deg);
+    opacity: 0.50;
+  }
+}
