@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
         [`${newTicketInfo.id}`]: newTicketInfo,
       };
     },
-    removeTicketbyId(state, { payload: ticketId }: PayloadAction<string>): CartState {
+    removeTicketsbyId(state, { payload: ticketId }: PayloadAction<string>): CartState {
       const newState = { ...state };
       delete newState[ticketId];
       return { ...newState };
@@ -23,4 +23,4 @@ export const cartSlice = createSlice({
   },
 });
 
-export const { setTicketInfo, removeTicketbyId } = cartSlice.actions;
+export const { setTicketInfo, removeTicketsbyId } = cartSlice.actions;

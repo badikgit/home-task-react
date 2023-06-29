@@ -7,6 +7,7 @@
   max-height: fit-content;
   border: none;
   text-align: left;
+  text-decoration: none;
   cursor: pointer;
   & > * {
     pointer-events: none;
@@ -25,9 +26,5 @@
     font-weight: 600;
     line-height: 20px;
     width: 100%;
-  }
-  & .controls {
-    margin-left: auto;
-    pointer-events: all;
   }
 }

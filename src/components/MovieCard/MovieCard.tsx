@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { Loader, Reviews } from '..';
+import { CountControls, Loader, Reviews } from '..';
 import { useGetReviewsByMovieIdQuery } from '../../store';
 import { Genre, MovieDto } from '../../store/types';
 import styles from './MovieCard.module.scss';
 
-export const MovieCard: FC<MovieDto> = ({ posterUrl, title, genre, id: movieId, description, director, rating, releaseYear }) => {
+export const MovieCard: FC<MovieDto> = (props) => {
+  const { posterUrl, title, genre, id: movieId, description, director, rating, releaseYear } = props;
   const { data, isLoading, isFetching, isSuccess } = useGetReviewsByMovieIdQuery({ movieId });
 
   return (
@@ -14,7 +15,7 @@ export const MovieCard: FC<MovieDto> = ({ posterUrl, title, genre, id: movieId, 
         <div className={styles.content}>
           <div className={styles.heading}>
             <h4>{title}</h4>
-            <div className={styles.controls}>Контролы</div>
+            <CountControls data={props} />
           </div>
           <div className={styles.info}>
             <p>

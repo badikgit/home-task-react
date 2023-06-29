@@ -1,5 +1,6 @@
 export * from './App';
 export * from './CartCounter';
+export * from './CountControls';
 export * from './Form';
 export * from './Footer';
 export * from './Header';

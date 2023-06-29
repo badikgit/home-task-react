@@ -1,15 +1,18 @@
 import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Genre, MovieDto } from '../../store/types';
+import { CountControls } from '..';
 import styles from './TicketCard.module.scss';
+import { ROUTES } from '../../common/constants/routes';
 
-export const TicketCard: FC<MovieDto> = ({ posterUrl, title, genre, id }) => {
+export const TicketCard: FC<MovieDto> = (props) => {
+  const { id, genre, posterUrl, title } = props;
   const navigate = useNavigate();
 
   const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     if (e.target instanceof HTMLButtonElement) {
       const movieId = e.target.value;
-      navigate(`movie/${movieId}`);
+      navigate(ROUTES.MOVIE.replace(':id', movieId));
     }
   };
 
@@ -20,7 +23,7 @@ export const TicketCard: FC<MovieDto> = ({ posterUrl, title, genre, id }) => {
         <h4>{title}</h4>
         <i>{Genre[genre]}</i>
       </div>
-      <div className={styles.controls}>Контролы</div>
+      <CountControls data={props} />
     </button>
   );
 };
