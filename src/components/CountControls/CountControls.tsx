@@ -27,7 +27,11 @@ export const CountControls: FC<CountControlsProps> = ({ data }) => {
   const reduceTicket: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
     if (count === 1) {
-      setIsModalOpen(true);
+      if (isDeletable) {
+        setIsModalOpen(true);
+        return;
+      }
+      store.dispatch(cartSlice.actions.removeTicketsbyId(data.id));
       return;
     }
     store.dispatch(cartSlice.actions.setTicketInfo({ ...data, tickets: count - 1 }));
